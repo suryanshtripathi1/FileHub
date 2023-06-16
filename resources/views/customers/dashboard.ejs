@@ -1,0 +1,45 @@
+<section class="bg-gray-100">
+    <div class="flex min-h-screen">
+      <!-- Left Panel -->
+      <div class="w-64 bg-gray-800 text-white">
+        <div class="flex items-center justify-center h-16 border-b border-gray-700">
+          <span class="text-xl font-bold">Dashboard</span>
+        </div>
+        <div class="text-lg font-bold text-center mt-4 border-2 border-white">CPF: <%=user.cpfnumber%> </div>
+        <nav class="py-2">
+          <ul class="list-none pl-0">
+            <a href="/customers/dashboard"><li class="px-8 py-2 hover:bg-gray-700">Dashboard</li></a>
+            <a href="/customers/activefile"><li class="px-8 py-2 hover:bg-gray-700">Active Files</li></a>
+            <a href="/customers/createfile"><li class="px-8 py-2 hover:bg-gray-700">Create Files</li></a>
+            <a href="/customers/deletefile"><li class="px-8 py-2 hover:bg-gray-700">Delete Files</li></a>
+            <a onclick="document.getElementById('logout').submit()" href="#"><li class="px-8 py-2 hover:bg-gray-700"><form id="logout" action="/logout" method="post">Logout</form></li></a>
+          </ul>
+        </nav>
+      </div>
+  
+      <!-- Main Content -->
+      <div class="flex-1 p-8">
+        <h1 class="text-2xl font-bold mb-4">Welcome to the User Dashboard!</h1>
+        <p class="text-justify">User Dashboard - Personal File Management<br>
+          <br>
+          Welcome to the User Dashboard for personal file management. Here, you have the ability to create, delete, and view your files.<br>
+          <br>
+          View Files:<br>
+          Browse through the list of files to view their details. Each file entry displays the title, description, and other relevant information. By clicking on a Active File, you can access all the saved files.<br>
+          <br>
+          Create Files:<br>
+          You can easily create new files by providing a title and description. Simply click on the "Create File" button, and a new file will be generated with the given details. You can then add content to the file and save it.<br>
+          <br>
+          Delete Files:<br>
+          To remove unnecessary files, select the file you wish to delete from the list of existing files. Click on the "Delete Selected File" button, and the file will be permanently removed from the system. Exercise caution when deleting files, as this action cannot be undone.<br>
+          <br>
+          Finally, after doing all the required things, user can logout by clicking on "Logout"<br>
+          <br>
+          Stay organized and manage your personal files efficiently using the features provided in the User Dashboard. If you have any questions or encounter any issues, feel free to reach out to our support team.<br>
+          <br>
+          Happy file management!
+
+        </p>
+      </div>
+    </div>
+  </section>
