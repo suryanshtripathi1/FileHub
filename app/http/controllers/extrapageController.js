@@ -6,6 +6,10 @@ function extrapageController() {
 
         termsandconditions(req,res) {
             res.render('termsandconditions')
+        },
+
+        contactus(req,res) {
+            res.render('contactus')
         }
     }
 }

@@ -17,6 +17,7 @@ const admin = require('../app/http/middlewares/admin')
 function initRoutes(app) {
     app.get('/viewall', extrapageController().viewall)
     app.get('/termsandconditions', extrapageController().termsandconditions)
+    app.get('/contactus', extrapageController().contactus)
     
     app.get('/login', guest, authController().login)
     app.post('/login', authController().postlogin)

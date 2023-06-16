@@ -135,6 +135,21 @@ a {
   color: white;
 }
 
+table {
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border: solid;
+  border-spacing: 2px;
+  border-color: gray;
+}
+
+th,
+td {
+  border: solid;
+}
+
 .aggrement {
   width: 60%;
   background: rgba(255, 255, 255, 0.5);
@@ -186,6 +201,7 @@ ul {
   color: #fff;
   border-radius: 4px;
   text-decoration: none !important;
+  top: 10px;
 }
 
 .agreement {

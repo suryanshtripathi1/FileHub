@@ -106,6 +106,19 @@
     color: white;
   }
 
+  table{
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border: solid;
+    border-spacing: 2px;
+    border-color: gray;
+  }
+
+  th, td{
+    border: solid;
+  }
   //loginview page
   .aggrement{
     width: 60%;
@@ -153,6 +166,7 @@ ul{
     color: #fff;
     border-radius: 4px;
     text-decoration: none!important;
+    top: 10px;
 }
 
 .agreement{
