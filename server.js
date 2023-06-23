@@ -13,8 +13,8 @@ const passport = require('passport')
 const Emitter = require('events')
 
 // Database connection
-const url = 'mongodb://localhost/Disha'
-mongoose.connect('mongodb://localhost/Disha', { useNewUrlParser: true });
+const url = process.env.mongoURI
+mongoose.connect(url, { useNewUrlParser: true });
 const connection = mongoose.connection;
 
 // Event emitter
@@ -26,9 +26,9 @@ app.use(session({
     secret: process.env.COOKIE_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 24*60*60*1000 }, // cookie life for 1year
+    cookie: { maxAge: 365*24*60*60*1000 }, // cookie life for 1year
     store: MongoStore.create({
-        mongoUrl: 'mongodb://localhost/Disha',
+        mongoUrl: url,
         collection: 'sessions'
     })
 }))
@@ -60,26 +60,7 @@ app.set('view engine', 'ejs')
 
 require('./routes/web')(app)
 
-// app.use((req, res) => {
-//     res.status(404).render('errors/404')
-// })
 
 const server = app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
-})
-
-const io = require('socket.io')(server)
-io.on('connection', (socket) => {
-      // Join
-      socket.on('join', (orderId) => {
-        socket.join(orderId)
-      })
-})
-
-eventEmitter.on('orderUpdated', (data) => {
-    io.to(`order_${data.id}`).emit('orderUpdated', data)
-})
-
-eventEmitter.on('orderPlaced', (data) => {
-    io.to('adminRoom').emit('orderPlaced', data)
 })
