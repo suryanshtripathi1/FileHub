@@ -5,7 +5,7 @@ function auth(req, res, next) {
     else if(req.isAuthenticated() && req.user.role === 'admin') {
         return res.redirect('/admin/dashboard')
     }
-    return res.redirect('/login')
+    return res.redirect('/')
 }
 
 module.exports = auth

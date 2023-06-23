@@ -14,8 +14,8 @@ function initRoutes(app) {
     app.get('/termsandconditions', extrapageController().termsandconditions)
     app.get('/contactus', extrapageController().contactus)
     
-    app.get('/login', guest, authController().login)
-    app.post('/login', authController().postlogin)
+    app.get('/', guest, authController().login)
+    app.post('/', authController().postlogin)
     
     app.get('/admin/signup', admin, authController().signup)
     app.post('/admin/signup', authController().postsignup)

@@ -17,11 +17,11 @@ function authController() {
             //Request validation
             if (!cpfnumber || !password) {
                 req.flash('error', 'All fields are required!!')
-                return res.redirect('/login')
+                return res.redirect('/')
             }
             if(!check){
                 req.flash('error', 'Please check Terms & Conditions')
-                return res.redirect('/login')
+                return res.redirect('/')
             }
             passport.authenticate('local', (err, user, info) => {
                 if (err) {
@@ -30,7 +30,7 @@ function authController() {
                 }
                 if (!user) {
                     req.flash('error', info.message)
-                    return res.redirect('/login')
+                    return res.redirect('/')
                 }
                 req.logIn(user, (err) => {
                     if (err) {
@@ -86,7 +86,7 @@ function authController() {
                 if(err) {
                     return next(err);
                 }
-                return res.redirect('/login');
+                return res.redirect('/');
             })
         }
     }
