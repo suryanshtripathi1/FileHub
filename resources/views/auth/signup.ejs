@@ -1,0 +1,25 @@
+<section>
+    <!--Navbar -->
+    <div class="login_bg min-h-screen">
+        <div class="mb-16">
+            <a href="/"><img src="/img/ongc_nav_logo.png" alt="Error loading logo"></a>
+        </div>
+        <div class="login_form m-auto border rounded-md w-2/6 p-6 font-bold">
+            <% if(messages.error) { %>
+            <span class="text-red-500 text-sm"><%= messages.error %></span>
+            <% } %>
+            <form action="/signup" method="post">
+                <div class="form-group mb-8">
+                    <label class="block">CPF Number<label class="block">
+                    <input name="cpfnumber" type="text" class="form-control w-full px-4 py-2 mt-2" placeholder="Enter CPF Number">
+                </div>
+                <div class="form-group mb-16">
+                    <label class="block">Domain Password<label class="block">
+                    <input name="password" type="password" class="form-control w-full px-4 py-2 mt-2" placeholder="Enter Domain Password">
+                </div>
+                <button type="submit" class="btn btn-primary mt-4">Register as Disha User</button>
+                <div>Already Registered?<a href="/" class="text-blue-500 underline"> Login now</a></div>
+            </form>
+        </div>
+    </div>
+</section>

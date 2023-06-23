@@ -16,10 +16,10 @@ function initRoutes(app) {
     
     app.get('/', guest, authController().login)
     app.post('/', authController().postlogin)
-    
-    app.get('/admin/signup', admin, authController().signup)
-    app.post('/admin/signup', authController().postsignup)
 
+    app.get('/signup', guest, authController().signup)
+    app.post('/signup', authController().postsignup)
+    
     app.get('/admin/dashboard', admin, dashboardController().foradmin)
     app.get('/customers/dashboard', auth, dashboardController().foruser)
 

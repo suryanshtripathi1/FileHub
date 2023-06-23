@@ -43,8 +43,8 @@ function authController() {
             })(req, res, next)
         },
 
-        signup(req, res) {
-            res.render('admin/signup')
+        signup(req,res) {
+            res.render('auth/signup')
         },
 
         async postsignup(req, res) {
@@ -53,14 +53,14 @@ function authController() {
             if (!cpfnumber || !password) {
                 req.flash('error', 'All fields are required!!')
                 req.flash('cpfnumber', cpfnumber)
-                return res.redirect('/admin/signup')
+                return res.redirect('/signup')
             }
             //Email already registered
             User.exists({ cpfnumber: cpfnumber }, (err, result) => {
                 if (result) {
                     req.flash('error', 'CPF number already registered!!')
                     req.flash('cpfnumber', cpfnumber)
-                    return res.redirect('/admin/signup')
+                    return res.redirect('/signup')
                 }
             })
             //password hashing
@@ -74,10 +74,10 @@ function authController() {
 
             user.save().then((user) => {
                 //for login in future
-                return res.redirect('/admin/signup')
+                return res.redirect('/')
             }).catch(err => {
                 req.flash('error', 'Something is wrong!!')
-                return res.redirect('/admin/signup')
+                return res.redirect('/signup')
             })
         },
 
